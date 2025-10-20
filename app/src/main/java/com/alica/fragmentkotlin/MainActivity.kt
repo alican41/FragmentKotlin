@@ -1,0 +1,42 @@
+package com.alica.fragmentkotlin
+
+import android.os.Bundle
+import android.view.View
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.alica.fragmentkotlin.databinding.ActivityMainBinding
+
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+    }
+
+    fun firstFragment(view : View){
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+
+        val firstFragment = FirstFragment()
+        fragmentTransaction.replace(R.id.frameLayout,firstFragment).commit()
+
+    }
+
+    fun secondFragment(view : View){
+
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+
+        val secondFragment = SecondFragment()
+        fragmentTransaction.replace(R.id.frameLayout,secondFragment).commit()
+
+    }
+
+
+}
